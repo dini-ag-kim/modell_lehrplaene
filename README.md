@@ -1,13 +1,15 @@
 # Arbeitsdokument Modell Lehrpläne
 
-## Fehlende Attribute
+## Fehlende Attribute / Diskussionen
 
 - Darstellung von Materialverknüpfungen
-- Verbindung mit Querschnittskompetenzen
-- Dauer
 - Inversionen von teaches und assesses?
-    - Kompetenzen sollen auf Lehrmaterialien verweisen (grade verweisen Lehrmaterialien auf Kompetenzen) --> Issue erstellen
+    - Kompetenzen sollen auf Lehrmaterialien verweisen (grade verweisen Lehrmaterialien auf Kompetenzen)
 - `sameAs`: Zur Angabe der Relationen
+- `educationalLevel` und `educationalContext`: s. Diskussion https://github.com/dini-ag-kim/amb/issues/107
+    - Sodix: nutzt educationallevel i.s.v. Primarstufe, Sekundarbereich; classLevel für Angabe der Klassenstufe
+    - Vorschlag: Feld zusammenlegen und zwei Wertelisten hinterlegen?
+    - --> nochmal diskutieren
 
 ## Mögliche Attribute und ihre Definition
 
@@ -32,6 +34,8 @@
 - [`dateModified`](http://schema.org/dateModified)
 - [`version`](http://schema.org/version)
 - [`keywords`](http://schema.org/keywords)
+- [`timeRequired`](http://schema.org/timeRequired)
+    - ISO 8601
 
 
 ## Beispiel zur Abbildung in JSON(-LD):
