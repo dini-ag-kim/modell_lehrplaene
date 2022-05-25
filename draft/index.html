@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+    <meta charset='utf-8'>
+    <title>Datenmodell zur Abbildung von Lehrplänen</title>
+    <script src='https://w3c.github.io/respec/builds/respec-dini.js' async class='remove'></script>
+    <script class='remove'>
+        // ReSpec-Konfiguration
+        // Dokumentation: https://github.com/w3c/respec/wiki/Configuration-(respecConfig)
+        var respecConfig = {
+            editors: [{
+                name: "Steffen Rörtgen",
+                company: "GWDG",
+                companyURL: "https://www.gwdg.de/"
+            }],
+            format: "markdown",
+            localBiblio: {
+                "GND": {
+                    title: "Gemeinsame Normdatei (GND)",
+                    href: "https://www.dnb.de/gnd",
+                    publisher: "GND-Kooperative"
+                },
+                "JSON Schema": {
+                    title: "JSON Schema: A Media Type for Describing JSON Documents",
+                    href: "https://tools.ietf.org/html/draft-handrews-json-schema-02",
+                    publisher: "Internet Engineering Task Force "
+                },
+                "LRMI": {
+                    title: "LRMI Concept Schemes",
+                    href: "https://www.dublincore.org/specifications/lrmi/concept_schemes/",
+                    publisher: "Dublin Core Metadata Initiative (DCMI)"
+                },
+                "OEHRT": {
+                    title: "OpenEduHub Ressourcentypen",
+                    href: "http://w3id.org/openeduhub/vocabs/learningResourceType/",
+                    publisher: "OpenEduHub"
+                },
+                "ORCID": {
+                    title: "ORCID",
+                    href: "https://orcid.org/",
+                    publisher: "ORCID, Inc."
+                },
+                "ROR": {
+                    title: "Research Organization Registry",
+                    href: "https://ror.org/",
+                    publisher: "California Digital Library, Crossref, DataCite, and Digital Science"
+                },
+                "schema.org": {
+                    title: "schema.org Vocabulary",
+                    href: "https://schema.org",
+                    publisher: "Schema.org W3C Community Group"
+                },
+                "SKOS": {
+                    title: "Simple Knowledge Organization System",
+                    href: "https://www.w3.org/TR/skos-reference/",
+                    publisher: "W3C"
+                },
+                "HS-OER-LOM": {
+                    title: "LOM for Higher Education OER Repositories",
+                    href: "https://w3id.org/kim/hs-oer-lom-profil/latest/",
+                    publisher: "Kompetenzzentrum Interoperable Metadaten (KIM)"
+                },
+                "Hochschulfächersystematik": {
+                    title: "Destatis-Systematik der Fächergruppen, Studienbereiche und Studienfächer",
+                    href: "https://w3id.org/kim/hochschulfaechersystematik/scheme",
+                    publisher: "Kompetenzzentrum Interoperable Metadaten (KIM)"
+                },
+                "HCRT": {
+                    title: "Hochschulcampus Ressourcentypen",
+                    href: "https://w3id.org/kim/hcrt/scheme",
+                    publisher: "Kompetenzzentrum Interoperable Metadaten (KIM)"
+                },
+                "Schulfächerliste": {
+                    "title": "Werteliste für allgemeinbildende Schulfächer",
+                    "href": "http://w3id.org/kim/schulfaecher/",
+                    "publisher": "Kompetenzzentrum Interoperable Metadaten (KIM)"
+                },
+                "Bildungsstufen": {
+                    "title": "Werteliste für Bildungsstufen",
+                    "href": "https://w3id.org/kim/educationalLevel/",
+                    "publisher": "Kompetenzzentrum Interoperable Metadaten (KIM)"
+                },
+                "Wikidata": {
+                    title: "Wikidata",
+                    href: "https://www.wikidata.org/",
+                    publisher: "The Wikimedia Foundation, Inc."
+                }
+            },
+            logos: [],
+            otherLinks: [{
+                key: "Links zur Spezifikation",
+                data: [{
+                    value: "Permalink zur aktuellsten Version",
+                    href: "https://github.com/dini-ag-kim/modell_lehrplaene"
+                }, //{
+                    // Bei Entwürfen sollte dieser Link nicht aufgeführt werden.
+                   // value: "Permalink zu dieser Version",
+                   // href: "https://w3id.org/kim/[spec]/[version]/"
+                // },
+                {
+                    value: "Letzter Entwurf zur Kommentierung",
+                    href: "https://github.com/dini-ag-kim/modell_lehrplaene"
+                }]
+            }, {
+                key: "Mitmachen",
+                data: [{
+                    value: "GitHub-Repository",
+                    href: "https://github.com/dini-ag-kim/modell_lehrplaene"
+                }, {
+                    value: "Änderungshistorie",
+                    href: "https://github.com/dini-ag-kim/modell_lehrplaene/commits/main"
+                }]
+            }],
+            publishDate: "", // Veröffentlichungsdatum der Spezifikation im ISO 8601-Format (YYYY-MM-DD). Bei Entwürfen leer lassen!
+            specStatus: "unofficial"
+        };
+    </script>
+</head>
+<body>
+
+<section id="abstract">
+
+## Zusammenfassung
+
+TODO Umfang des Dokuments beschreiben 
+
+</section>
+
+<section id="why-rdf">
+
+## Warum RDF?
+
+- unabhängig von der Serialisierung
+- einfache Möglichkeit zur Verlinkung
+- Möglichkeit zur Inferenzbildung / Reasoning --> Grafik einfügen
+
+</section>
+
+<section id="model" class="normative">
+
+## Datenmodell
+
+Das Datenmodell zur Abbildung von Lehrplandaten baut auf [[!SKOS]] (Simple Knowledge Organization System) auf und ergänzt dieses um Attribute, die für die Abbildung von Lehrplandaten relevant sind.
+Die ergänzenden Attribute können wiederum auf SKOS-Vokabulare verweisen, wo feste Wertelisten empfohlen werden.
+
+Im Folgenden wird das Datenmodell beschrieben.
+Nebst einer Kurzbeschreibung wird angegeben, ob der Wert eine Pflichtangabe ist und um welchen Typ es sich handelt.
+Wenn erforderlich, wird der Wertebereich festgelegt und es werden kurze Beispiele gegeben.
+
+Grundsätzlich ist das Datenmodell wie folgt strukturiert:
+
+Es gibt zwei Klassen, die zur Strukturierung des Lehrplans verwendet werden:
+
+- `dini:Curriculum` (Subtyp von `skos:ConceptScheme`)
+- `dini:CurriculumItem` (Subtyp von `skos:Concept`)
+
+Die Klasse `dini:Curriculum` dient als Basisklasse und damit als logische und gedankliche Klammer, für die ihr untergeordneten Lehrplanobjekte (`dini:CurriculumItem`).
+Dieser übergeordneten Klasse werden alle Attribute zugeordnet, die generell für den gesamten abgebildeten Lehrplan gelten (bspw. Fach, Herausgeber, Lizenz, usw.).
+
+
+<section data-dfn-for="sdo:name" id="name">
+## <dfn>sdo:name</dfn>
+
+Titel des Lehrplanobjektes.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>ja</dd>
+<dt>Typ</dt>
+<dd>`Literal (language-tagged)`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/name</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:creator" id="creator">
+
+### <dfn>sdo:creator</dfn>
+
+Urheber:innen der Ressource. Die URI MUSS auf ein Objekt verweisen, das ein Attribut `rdf:type` mit den Werten `sdo:Person` oder `sdo:Organization` aufweist UND ein Attribut `sdo:name` mit dem jeweiligen Namen.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/creator</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Ja</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:publisher" id="publisher">
+
+### <dfn>sdo:publisher</dfn>
+
+Die Organisation oder Person, die für die Veöffentlichung der Ressource verantwortlich ist. Die URI MUSS auf ein Objekt verweisen, das ein Attribut `rdf:type` mit den Werten `sdo:Person` oder `sdo:Organization` aufweist UND ein Attribut `sdo:name` mit dem jeweiligen Namen.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/publisher</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Ja</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:about" id="about">
+
+### <dfn>sdo:about</dfn>
+
+Fach oder Thema des Curriculums.
+MUSS auf eine URI aus [[Hochschulfächersystematik]] ODER aus der [[Schulfächerliste]] der DINI-AG-KIM verweisen.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/about</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Ja</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:description" id="description">
+
+### <dfn>sdo:description</dfn>
+
+Beschreibung des Curriculums.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`Literal (language-tagged)`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/description</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:license" id="license">
+
+### <dfn>sdo:license</dfn>
+
+Lizenz der Ressource.  MUSS auf eine URI zur entsprechenden Lizenz verweisen.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/license</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Ja</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:dateCreated" id="dateCreated">
+
+### <dfn>sdo:dateCreated</dfn>
+
+Erstellungsdatum des Curriculums. MUSS ein String der Form `CCYY-MM-DD` für Datumsangaben sein.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`Literal (xsd:date)`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/dateCreated</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Ja</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:version" id="version">
+
+### <dfn>sdo:version</dfn>
+
+Version der Ressource.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`Literal (xsd:string)`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/version</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Ja</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:keywords" id="keywords">
+
+### <dfn>sdo:keywords</dfn>
+
+Schlagworte zur Beschreibung des Inhalts des Curriculums.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`Literal (language-tagged)`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/keywords</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:timeRequired" id="timeRequired">
+
+### <dfn>sdo:timeRequired</dfn>
+
+Benötigte Zeit zur Bearbeitung des Curriculums im ![[ISO8601]]-Format.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`Literal (xsd:duration)`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/timeRequired</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+
+</section>
+
+<section data-dfn-for="sdo:educationalLevel" id="educationalLevel">
+
+### <dfn>sdo:educationalLevel</dfn>
+
+Verweis auf eine Stufe im Bildungssystem als Lehr-/Lernkontext, für den das Currciulum ausgewiesen ist. MUSS auf ein oder mehrere Objekte verweisen, die aus dem [[Bildungsstufen]]-Vokabular stammen.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/educationalLevel</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Ja</dd>
+</dl>
+</section>
+
+<section data-dfn-for="dini:taughtBy" id="taughtBy">
+
+### <dfn>dini:taughtBy</dfn>
+
+Verweis auf ein Objekt, dessen Bearbeitung den Erwerb der Kompetenz fördert.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>TODO</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+<dt>Bemerkung</dt>
+<dd>Inversion von sdo:teaches</dd>
+</dl>
+
+</section><section data-dfn-for="dini:assessedBy" id="assessedBy">
+
+### <dfn>dini:assessedBy</dfn>
+
+Verweis auf ein Objekt, dessen erfolgreiche Bearbeitung das Vorhandensein der Kompetenz bestätigt.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>TODO</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+<dt>Bemerkung</dt>
+<dd>Inversion von sdo:assesses</dd>
+</dl>
+
+</section>
+
+
+
+<section data-dfn-for="dini:bildungsstandard" id="bildungsstandard">
+
+### <dfn>dini:bildungsstandard</dfn>
+
+Verweis auf einen Bildungsstandard (TODO Bildungsstandards vom IQB einfügen).
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>TODO</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+</section>
+
+<section data-dfn-for="sdo:hasPart" id="hasPart">
+
+### <dfn>sdo:hasPart</dfn>
+
+Verweis auf untergeordnete Curriculum Objekte .
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/hasPart</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+</section>
+
+<section data-dfn-for="sdo:isPartOf" id="isPartOf">
+
+### <dfn>sdo:isPartOf</dfn>
+
+Verweis auf übergeordnete Curriculum Objekte (`dini:CurriculumItem`) oder das Curriculum selbst (`dini:Curriculum`).
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://schema.org/isPartOf</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+</section>
+
+<section data-dfn-for="skos:relatedMatch" id="relatedMatch">
+
+### <dfn>skos:relatedMatch</dfn>
+
+Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curriculums, das mit diesem Objekt in Verbindung steht.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://www.w3.org/2004/02/skos/core#relatedMatch</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+</section>
+
+<section data-dfn-for="skos:closeMatch" id="closeMatch">
+
+### <dfn>skos:closeMatch</dfn>
+
+Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curriculums, das diesem Objekt ähnelt.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://www.w3.org/2004/02/skos/core#closeMatch</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+</section>
+
+<section data-dfn-for="skos:exactMatch" id="exactMatch">
+
+### <dfn>skos:exactMatch</dfn>
+
+Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curriculums, das diesem Objekt genau entspricht.
+
+<dl>
+<dt>Pflichtfeld</dt>
+<dd>nein</dd>
+<dt>Typ</dd>
+<dd>`URI`</dd>
+<dt>URL</dt>
+<dd>http://www.w3.org/2004/02/skos/core#exactMatch</dd>
+<dt>Inferenz auf Curriculum Item</dt>
+<dd>Nein</dd>
+</dl>
+</section>
+
+</section>
+
+<section id="curriculum">
+
+## Attribute von <dfn>dini:Curriculum</dfn>
+
+Objekten vom Typ `dini:Curriculum` können folgende Attribute zugeordnet werden:
+
+- <a>sdo:name</a>
+- <a>sdo:creator</a>
+- <a>sdo:publisher</a>
+- <a>sdo:about</a>
+- <a>sdo:description</a>
+- <a>sdo:license</a>
+- <a>sdo:dateCreated</a>
+- <a>sdo:version</a>
+- <a>sdo:keywords</a>
+- <a>sdo:timeRequired</a>
+- <a>sdo:educationalLevel</a>
+- <a>dini:bildungsstandard</a>
+- <a>sdo:hasPart</a>
+- <a>skos:relatedMatch</a>
+- <a>skos:closeMatch</a>
+- <a>skos:exactMatch</a>
+
+
+<!-- end of curriculum-item section -->
+</section>
+
+
+<section id="curriculumItem">
+
+## Attribute von <dfn>dini:CurriculumItem</dfn>
+
+Objekten vom Typ `dini:CurriculumItem` können folgende Attribute zugeordnet werden:
+
+- <a>sdo:name</a>
+- <a>sdo:description</a>
+- <a>sdo:keywords</a>
+- <a>sdo:timeRequired</a>
+- <a>sdo:educationalLevel</a>
+- <a>dini:taughtBy</a>
+- <a>dini:assessedBy</a>
+- <a>dini:bildungsstandard</a>
+- <a>sdo:hasPart</a>
+- <a>sdo:isPartOf</a>
+- <a>skos:relatedMatch</a>
+- <a>skos:closeMatch</a>
+- <a>skos:exactMatch</a>
+
+<!-- end of curriculum-item section -->
+</section>
+
+
+</section>
+
+
+<section id="validation">
+
+## Validierung
+
+TODO
+
+</section>
+
+<section id="examples" class="informative">
+## Beispiele
+
+### Beispiel für <a>dini:Curriculum</a>
+
+<pre class="example" title="Beschreibung eines Curriculums (Turtle)" data-include="examples/curriculum.ttl" data-include-format="text"></pre>
+<pre class="example" title="Beschreibung eines Curriculums (JSON)" data-include="examples/curriculum.json" data-include-format="text/turtle"></pre>
+
+### Beispiel für <a>dini:CurriculumItem</a>
+
+<pre class="example" title="Beschreibung eines Curriculum-Items (Turtle)" data-include="examples/curriculum-item.ttl" data-include-format="text"></pre>
+<pre class="example" title="Beschreibung eines Curriculum-Items (JSON)" data-include="examples/curriculum-item.json" data-include-format="text/turtle"></pre>
+
+
+
+</section>
+
+<section id="glossary" class="appendix"">
+
+## Glossar
+
+<dl>
+<dt><abbr title="Application Programming Interface">API</abbr></dt>
+<dd>Application Programming Interface</dd>
+<dt><abbr title="Bundesministerium für Bildung und Forschung">BMBF</abbr></dt>
+<dd>Bundesministerium für Bildung und Forschung</dd>
+<dt><abbr title="Dublin Core">DC</abbr></dt>
+<dd>Dublin Core</dd>
+<dt><abbr title="Digital Object Identifier">DOI</abbr></dt>
+<dd>Digital Object Identifier</dd>
+<dt><abbr title="Digital Repositories Interoperability">DRI</abbr></dt>
+<dd>Digital Repositories Interoperability</dd>
+<dt><abbr title="Globally Unique Identifier">GUID</abbr></dt>
+<dd>Globally Unique Identifier</dd>
+<dt><abbr title="Hypertext Transfer Protocol">HTTP</abbr></dt>
+<dd>Hypertext Transfer Protocol</dd>
+<dt><abbr title="JavaScript Object Notation">JSON</abbr></dt>
+<dd>JavaScript Object Notation</dd>
+<dt><abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr></dt>
+<dd>JavaScript Object Notation for Linked Data</dd>
+<dt><abbr title="Learning Object Metadata">LOM</abbr></dt>
+<dd>Learning Object Metadata</dd>
+<dt><abbr title="Learning Object Repository">LOR</abbr></dt>
+<dd>Learning Object Repository</dd>
+<dt><abbr title="Open Archives Initiative – Protocol for Metadata Harvesting">OAI-PMH</abbr></dt>
+<dd>Open Archives Initiative – Protocol for Metadata Harvesting</dd>
+<dt><abbr title="Open Educational Resource">OER</abbr></dt>
+<dd>Open Educational Resource</dd>
+<dt><abbr title="Uniform Resource Identifier">URI</abbr></dt>
+<dd>Uniform Resource Identifier</dd>
+<dt><abbr title="Uniform Resource Locator">URL</abbr></dt>
+<dd>Uniform Resource Locator</dd>
+<dt><abbr title="World Wide Web Consortium">W3C</abbr></dt>
+<dd>World Wide Web Consortium</dd>
+</dl>
+
+</section>
+
+<!-- Embed hypothes.is to allow live annotation of the draft. Remove when publishing new spec version. -->
+<script src="https://hypothes.is/embed.js" async></script>
+</body>
+
+</html>
