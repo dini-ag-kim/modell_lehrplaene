@@ -1,0 +1,94 @@
+{
+    "@context": {
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "sdo": "https://schema.org/",
+        "dini": "https://w3id.org/dini/dini-ns/",
+        "@vocab": "https://example.com/isb/mathe/",
+        "id": "@id",
+        "type": "@type"
+    },
+    "@graph": [
+        {
+            "id": "https://example.com/isb/mathe/matheBY7",
+            "sdo:keywords": [
+                {
+                    "@language": "de",
+                    "@value": "Bayern"
+                },
+                {
+                    "@language": "de",
+                    "@value": "Lehrplan"
+                },
+                {
+                    "@language": "de",
+                    "@value": "Mathematik"
+                }
+            ],
+            "sdo:dateCreated": {
+                "@value": "2020-08-28",
+                "type": "xsd:date"
+            },
+            "sdo:edcuationalLevel": {
+                "id": "https://w3id.org/kim/educationalLevel/level_2"
+            },
+            "sdo:hasPart": {
+                "id": "https://example.com/isb/mathe/matheM71"
+            },
+            "sdo:license": {
+                "id": "https://creativecommons.org/publicdomain/zero/1.0/"
+            },
+            "sdo:publisher": {
+                "id": "https://example.com/isb/mathe/publisher"
+            },
+            "sdo:name": {
+                "@language": "de",
+                "@value": "Lehrplan Mathematik 7. Klasse Bayern"
+            },
+            "dini:bildungsstandard": {
+                "id": "https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1"
+            },
+            "sdo:description": {
+                "@language": "de",
+                "@value": "Der Lehrplan für das Fach Mathematik der siebten Jahrgangsstufe in Bayern"
+            },
+            "type": "dini:Curriculum",
+            "sdo:about": {
+                "id": "https://w3id.org/kim/schulfaecher/s1017"
+            },
+            "sdo:timeRequired": {
+                "@value": "P6M",
+                "type": "xsd:duration"
+            },
+            "sdo:version": "1.0",
+            "skos:closeMatch": {
+                "id": "https://example.com/isb/mathe/matheBaWue7"
+            },
+            "sdo:creator": {
+                "id": "https://example.com/isb/mathe/creator"
+            }
+        },
+        {
+            "id": "https://example.com/isb/mathe/publisher",
+            "sdo:url": {
+                "id": "https://www.isb.bayern.de/"
+            },
+            "sdo:name": {
+                "@language": "de",
+                "@value": "Staatsinstitut für Schulqualität und Bildungsforschung"
+            },
+            "type": "sdo:Organization"
+        },
+        {
+            "id": "https://example.com/isb/mathe/creator",
+            "sdo:url": {
+                "id": "https://www.isb.bayern.de/"
+            },
+            "sdo:name": {
+                "@language": "de",
+                "@value": "Staatsinstitut für Schulqualität und Bildungsforschung"
+            },
+            "type": "sdo:Organization"
+        }
+    ]
+}
