@@ -125,7 +125,7 @@
 Dieses Datenmodell zur Abbildung von Lehrplänen im Schulbereich ist im Rahmen der [Curricula-Gruppe](https://wiki.dnb.de/display/DINIAGKIM/Curricula-Gruppe) in der [DINI-AG-KIM](https://dini.de/ag/kim/) entwickelt worden.
 Es soll als länderübergreifendes Modell dienen und ist so angelegt, dass eine Verlinkung zwischen verschiedenen Lehrplänen, aber auch mit relevanten (Lehr- und Lern-) Materialien auf unkomplizierte Weise möglich ist.
 Das Modell selbst basiert auf RDF, dem Resource Description Framework. 
-Die Gründe zum Aufbau des Lehrplanmodells auf RDF werden im nächsten Abschnitt dargestellt.
+Die Gründe zum Aufbau des Lehrplanmodells auf RDF werden im Abschnitt ["Warum RDF?"](#why-rdf) dargestellt.
 Im Rahmen dieser Spezifikation werden die Attribute und ihre Zuordnung zu den jeweiligen Entitätstypen definiert.
 Das Serialisierungsformat ist den Nutzenden freigestellt.
 
@@ -138,13 +138,47 @@ Das Serialisierungsformat ist den Nutzenden freigestellt.
 
 </section>
 
+<section id="introduction">
+
+## Einleitung
+
+Institutionelles Lernen findet stets im Kontext von Lehr- und Kompetenzplänen statt.
+Lehrer\*innen dienen sie als Richtlinie zur Gestalung ihres Unterrichts, Schüler*\innen als Orientierung innerhalb ihres Lernprozesses und nicht zuletzt dienen sie auch weiterführenden Bildungsinstitutionen sowie Unternehmen dazu, Bildungsqualifikationen in Form von Abschlüssen mit relevanten Themen und Inhalten abzugleichen.
+
+Trotz dieser zentralen Bedeutung von Lehrplänen gibt es kein einheitliches Modell, wie die Daten dieser Lehrpläne ausgetauscht werden können. 
+Insgesamt existiert ebenfalls ein Mangel hinsichtlich der Maschinenlesbarkeit dieser Daten.
+Eine Veröffentlichung erfolgt derzeit meist nur als PDF-Datei über die jeweiligen Einrichtungen in den Ländern.
+Für digitale Anwendungen im Bildungsbereich ist es jedoch erforderlich, dass diese Daten auch in maschinenlesbarer Form zur Verfügung stehen, um Lehrer\*innen, aber auch Schüler\*innen zeitgemäße Services anbieten zu können, die diese wichtigen Daten als Grundlage haben.
+
+Aus dieser Anforderung heraus wurde das vorliegende Datenmodell entwickelt, welches zwei Zwecke erfüllen soll: Die maschinenlesbare Veröffentlichung von Lehrplandaten sowie die Verlinkung dieser Daten mit anderen Ressourcen.
+Um diesen Zwecken gerecht zu werden, wurde das Modell auf Basis von RDF entwickelt.
+
+</section>
+
 <section id="why-rdf">
 
 ## Warum RDF?
 
-- unabhängig von der Serialisierung
-- einfache Möglichkeit zur Verlinkung
-- Möglichkeit zur Inferenzbildung / Reasoning --> Grafik einfügen
+RDF ist Graph-basiertes Datenmodell zur Veröffentlichung und Vernetzung von Daten über das Web.
+Der Standard wurde im W3C entwickelt und veröffentlicht.
+RDF ist hoch interoperabel und nutzt IRIs als eindeutige Identifier, was die Verlinkung der Daten auf einfache Weise ermöglicht.
+Ferner ist es ein reines **Datenmodell** und damit unabhängig vom Serialisierungsformat (XML, JSON oder Turtle sind gängige Serialisierungsformate von RDF-Daten).
+
+RDF erfreut sich bei öffentlich zur Verfügung gestellten Daten immer größerer Beliebtheit. 
+Als Beispiel lässt sich "ESCO - European Skills, Competences, and Occupations" anbringen, ein auf EU-Ebene erstellter Katalog von Fähigkeiten, Kompetenzen und Berufen, die miteinander verlinkt und in allen Sprachen der Mitgliedsländer frei zur Verfügung gestellt wurde.
+Diese Daten wurden ebenfalls in RDF modelliert und bieten damit eine hohe Interoperabilität zu weiteren Modellen sowie eine hohe Integrationsfähigkeit in andere Datensätze oder Anwendungen.
+
+Ein weiteres Beispiel ist das norwegische Bildungsministerium, welches ebenfalls eine RDF-basierte Ontologie zur Veröffentlichung ihrer Lehrplandaten nutzt (https://psi.udir.no/Kl06/nor01-06) und diese (inklusive eines SPARQL-Endpunktes) frei und öffentlich zur Verfügung stellt.
+
+Neben der hohen Interoperabilität und der Unabhängigkeit von Serialisierungsformaten besitzt RDF außerdem die Möglichkeit zur Inferenzbildung, auch als "Reasoning" bezeichnet.
+Hiermit wird es möglich, das implizite Beziehungen zwischen Daten explizit ausgeprägt werden können.
+Als Beispiel im Themenbereich Lehrpläne ist folgendes Szenario denkbar:
+
+Lehrplanthema X und Lehrplanthema Y werden als "ähnlich" deklariert.
+Lehrplanthema Z wird als "ähnlich" zu Lehrplanthema X deklariert.
+Damit kann geschlossen werden, dass Lehrplanthema Z auch "ähnlich" zu Lehrplanthema Y ist.
+
+TODO Grafik zur Verdeutlichung einfügen.
 
 </section>
 
