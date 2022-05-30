@@ -228,7 +228,7 @@ Titel des Lehrplanobjektes.
 
 ### <dfn>sdo:creator</dfn>
 
-Urheber:innen der Ressource. Die URI MUSS auf ein Objekt verweisen, das ein Attribut `rdf:type` mit den Werten `sdo:Person` oder `sdo:Organization` aufweist UND ein Attribut `sdo:name` mit dem jeweiligen Namen.
+Urheber:innen der Ressource. Die URI MUSS auf eine Entität verweisen, die ein Attribut `rdf:type` mit den Werten `sdo:Person` oder `sdo:Organization` aufweist UND ein Attribut `sdo:name` mit dem jeweiligen Namen.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -247,7 +247,7 @@ Urheber:innen der Ressource. Die URI MUSS auf ein Objekt verweisen, das ein Attr
 
 ### <dfn>sdo:publisher</dfn>
 
-Die Organisation oder Person, die für die Veöffentlichung der Ressource verantwortlich ist. Die URI MUSS auf ein Objekt verweisen, das ein Attribut `rdf:type` mit den Werten `sdo:Person` oder `sdo:Organization` aufweist UND ein Attribut `sdo:name` mit dem jeweiligen Namen.
+Die Organisation oder Person, die für die Veöffentlichung der Ressource verantwortlich ist. Die URI MUSS auf eine Entität verweisen, die ein Attribut `rdf:type` mit den Werten `sdo:Person` oder `sdo:Organization` aufweist UND ein Attribut `sdo:name` mit dem jeweiligen Namen.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -267,7 +267,7 @@ Die Organisation oder Person, die für die Veöffentlichung der Ressource verant
 ### <dfn>sdo:about</dfn>
 
 Fach oder Thema des Curriculums.
-MUSS auf eine URI aus [[Hochschulfächersystematik]] ODER aus der [[Schulfächerliste]] der DINI-AG-KIM verweisen.
+MUSS auf eine URI aus der [[Schulfächerliste]] der DINI-AG-KIM verweisen.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -400,7 +400,7 @@ Benötigte Zeit zur Bearbeitung des Curriculums im ![[ISO8601]]-Format.
 
 ### <dfn>sdo:educationalLevel</dfn>
 
-Verweis auf eine Stufe im Bildungssystem als Lehr-/Lernkontext, für den das Currciulum ausgewiesen ist. MUSS auf ein oder mehrere Objekte verweisen, die aus dem [[Bildungsstufen]]-Vokabular stammen.
+Verweis auf eine Stufe im Bildungssystem als Lehr-/Lernkontext, für den das Currciulum ausgewiesen ist. MUSS auf eine oder mehrere URIs verweisen, die aus dem [[Bildungsstufen]]-Vokabular stammen.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -418,7 +418,7 @@ Verweis auf eine Stufe im Bildungssystem als Lehr-/Lernkontext, für den das Cur
 
 ### <dfn>dini:taughtBy</dfn>
 
-Verweis auf ein Objekt, dessen Bearbeitung den Erwerb der Kompetenz fördert.
+Verweis auf eine Ressource, dessen Bearbeitung den Erwerb der Kompetenz fördert.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -437,7 +437,7 @@ Verweis auf ein Objekt, dessen Bearbeitung den Erwerb der Kompetenz fördert.
 
 ### <dfn>dini:assessedBy</dfn>
 
-Verweis auf ein Objekt, dessen erfolgreiche Bearbeitung das Vorhandensein der Kompetenz bestätigt.
+Verweis auf eine Ressource, dessen erfolgreiche Bearbeitung das Vorhandensein der Kompetenz bestätigt.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -478,7 +478,7 @@ Verweis auf einen Bildungsstandard (TODO Bildungsstandards vom IQB einfügen).
 
 ### <dfn>sdo:hasPart</dfn>
 
-Verweis auf untergeordnete Curriculum Objekte .
+Verweis auf untergeordnete Curriculum Entitäten.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -496,7 +496,7 @@ Verweis auf untergeordnete Curriculum Objekte .
 
 ### <dfn>sdo:isPartOf</dfn>
 
-Verweis auf übergeordnete Curriculum Objekte (`dini:CurriculumItem`) oder das Curriculum selbst (`dini:Curriculum`).
+Verweis auf übergeordnete Curriculum Entitäten (`dini:CurriculumItem`) oder das Curriculum selbst (`dini:Curriculum`).
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -514,7 +514,7 @@ Verweis auf übergeordnete Curriculum Objekte (`dini:CurriculumItem`) oder das C
 
 ### <dfn>skos:relatedMatch</dfn>
 
-Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curriculums, das mit diesem Objekt in Verbindung steht.
+Verweis auf eine Curriculum Entität (`dini:CurriculumItem`) eines anderen Curriculums, das mit diesem Objekt in Verbindung steht.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -532,7 +532,7 @@ Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curricul
 
 ### <dfn>skos:closeMatch</dfn>
 
-Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curriculums, das diesem Objekt ähnelt.
+Verweis auf eine Curriculum Entität (`dini:CurriculumItem`) eines anderen Curriculums, das diesem Objekt ähnelt.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -550,7 +550,7 @@ Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curricul
 
 ### <dfn>skos:exactMatch</dfn>
 
-Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curriculums, das diesem Objekt genau entspricht.
+Verweis auf eine Curriculum Entität (`dini:CurriculumItem`) eines anderen Curriculums, das diesem Objekt genau entspricht.
 
 <dl>
 <dt>Pflichtfeld</dt>
@@ -570,7 +570,7 @@ Verweis auf ein Curriculum Objekt (`dini:CurriculumItem`) eines anderen Curricul
 
 ## Attribute von <dfn>dini:Curriculum</dfn>
 
-Objekten vom Typ `dini:Curriculum` können folgende Attribute zugeordnet werden:
+Entitäten vom Typ `dini:Curriculum` können folgende Attribute zugeordnet werden:
 
 - <a>sdo:name</a>
 - <a>sdo:creator</a>
@@ -598,7 +598,7 @@ Objekten vom Typ `dini:Curriculum` können folgende Attribute zugeordnet werden:
 
 ## Attribute von <dfn>dini:CurriculumItem</dfn>
 
-Objekten vom Typ `dini:CurriculumItem` können folgende Attribute zugeordnet werden:
+Entitäten vom Typ `dini:CurriculumItem` können folgende Attribute zugeordnet werden:
 
 - <a>sdo:name</a>
 - <a>sdo:description</a>
