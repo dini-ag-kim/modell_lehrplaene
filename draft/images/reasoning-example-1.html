@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The Semantic Web &amp; Linked Data</title>
+  <link rel="stylesheet" href="../styles/vis.css">
+  <script src="../scripts/vis.custom.min.js"></script>
+</head>
+<body>
+<script>
+var graph = new vis.Network(
+  document.body,
+  {
+    nodes: [
+      { id: 'a', label: 'A', x: 20, y: 0 },
+      { id: 'b', label: 'B', x: 10, y: 1 },
+      { id: 'c', label: 'C', x: 0, y: 2 }
+    ],
+    edges: [
+      { from: 'a', to: 'b', label: 'ist ähnlich' },
+      { from: 'c', to: 'a', label: 'ist ähnlich' },
+    ],
+  },
+  {
+    nodes: {
+      color: '#1E64C8',
+      font: { color: 'white', face: 'UGentPanno' },
+      borderWidth: 0,
+    },
+    edges: {
+      color: '#1E64C8',
+      font: { align: 'middle', face: 'UGentPanno' },
+      arrows: { to: { scaleFactor: 0.5 }, },
+    },
+  });
+graph.once('stabilized', function () { graph.moveTo({ scale: 1 }); });
+</script>
+</body>
+</html>
