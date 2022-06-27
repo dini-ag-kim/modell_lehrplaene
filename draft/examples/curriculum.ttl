@@ -27,7 +27,7 @@
     sdo:keywords "Mathematik"@de, "Lehrplan"@de, "Bayern"@de ;
     sdo:timeRequired "P6M"^^xsd:duration ;
     sdo:edcuationalLevel <https://w3id.org/kim/educationalLevel/level_2> ;
-    dini:bildungsstandard <https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1> ;
+    dini:educationalStandard <https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1> ;
     sdo:hasPart :matheM71 ;
     skos:closeMatch :matheBaWue7
     .

@@ -17,7 +17,7 @@
             "sdo:isPartOf": {
                 "id": "https://example.com/isb/mathe/matheM71"
             },
-            "dini:bildungsstandard": {
+            "dini:educationalStandard": {
                 "id": "https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1"
             },
             "sdo:timeRequired": {
@@ -57,7 +57,7 @@
                 "@language": "de",
                 "@value": "Terme mit Variablen"
             },
-            "dini:bildungsstandard": {
+            "dini:educationalStandard": {
                 "id": "https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1"
             },
             "sdo:keywords": [

@@ -45,7 +45,7 @@
                 "@language": "de",
                 "@value": "Lehrplan Mathematik 7. Klasse Bayern"
             },
-            "dini:bildungsstandard": {
+            "dini:educationalStandard": {
                 "id": "https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1"
             },
             "sdo:description": {
