@@ -16,11 +16,11 @@
     .
 
 :matheBY7 a dini:Curriculum ;
-    sdo:name "Lehrplan Mathematik 7. Klasse Bayern"@de ;
+    skos:prefLabel "Lehrplan Mathematik 7. Klasse Bayern"@de ;
     sdo:creator :creator ;
     sdo:publisher :publisher ;
     sdo:about <https://w3id.org/kim/schulfaecher/s1017> ;
-    sdo:description "Der Lehrplan für das Fach Mathematik der siebten Jahrgangsstufe in Bayern"@de ;
+    skos:definition "Der Lehrplan für das Fach Mathematik der siebten Jahrgangsstufe in Bayern"@de ;
     sdo:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     sdo:dateCreated "2020-08-28"^^xsd:date ;
     sdo:version "1.0" ;
@@ -28,6 +28,6 @@
     sdo:timeRequired "P6M"^^xsd:duration ;
     sdo:edcuationalLevel <https://w3id.org/kim/educationalLevel/level_2> ;
     dini:educationalStandard <https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1> ;
-    sdo:hasPart :matheM71 ;
+    skos:narrower :matheM71 ;
     skos:closeMatch :matheBaWue7
     .

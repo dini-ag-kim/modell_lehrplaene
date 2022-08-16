@@ -5,24 +5,24 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :matheM71 a dini:CurriculumItem ;
-    sdo:name "Terme mit Variablen"@de ;
-    sdo:description ""@de ;
+    skos:prefLabel "Terme mit Variablen"@de ;
+    skos:definition ""@de ;
     sdo:keywords "Terme"@de, "Variablen"@de ;
     sdo:timeRequired "PT37H"^^xsd:duration ;
     dini:taughtBy <https://de.serlo.org/mathe/1841/termumformung-mit-variablen?contentOnly> ;
     dini:assessedBy <https://www.iqb.hu-berlin.de/vera/aufgaben> ;
     dini:educationalStandard <https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1> ;
-    sdo:isPartOf :matheBY7 ;
-    sdo:hasPart :matheM711, :matheM712 ;
+    skos:broader :matheBY7 ;
+    skos:narrower :matheM711, :matheM712 ;
     skos:closeMatch :matheBaWue71 ;
     .
 
 :matheM711 a dini:CurriculumItem ;
-    sdo:name "Aufstellen und Interpretieren von Termen"@de ;
-    sdo:description "Die Schülerinnen und Schüler verstehen Variablen als wichtiges Hilfsmittel, um mathematische Zusammenhänge kurz und prägnant zu formulieren. Sie strukturieren und abstrahieren unterschiedlich (z. B. sprachlich, numerisch, bildhaft) dargestellte inner- und außermathematische Zusammenhänge mithilfe von Termen mit einer oder mehreren Variablen und interpretieren vorgegebene Terme in derartigen Zusammenhängen."@de ;
+    skos:prefLabel "Aufstellen und Interpretieren von Termen"@de ;
+    skos:definition "Die Schülerinnen und Schüler verstehen Variablen als wichtiges Hilfsmittel, um mathematische Zusammenhänge kurz und prägnant zu formulieren. Sie strukturieren und abstrahieren unterschiedlich (z. B. sprachlich, numerisch, bildhaft) dargestellte inner- und außermathematische Zusammenhänge mithilfe von Termen mit einer oder mehreren Variablen und interpretieren vorgegebene Terme in derartigen Zusammenhängen."@de ;
     sdo:keywords "Terme"@de, "Variablen"@de ;
     sdo:timeRequired "PT13H"^^xsd:duration ;
     dini:educationalStandard <https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1> ;
-    sdo:isPartOf :matheM71 ;
+    skos:broader :matheM71 ;
     skos:closeMatch :matheBaWue7
     .

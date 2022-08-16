@@ -209,8 +209,8 @@ Die Klasse `dini:Curriculum` dient als Basisklasse und damit als logische und ge
 Dieser übergeordneten Klasse werden alle Attribute zugeordnet, die generell für den gesamten abgebildeten Lehrplan gelten (bspw. Fach, Herausgeber, Lizenz, usw.).
 
 
-<section data-dfn-for="sdo:name" id="name">
-## <dfn>sdo:name</dfn>
+<section data-dfn-for="skos:prefLabel" id="prefLabel">
+## <dfn>skos:prefLabel</dfn>
 
 Titel des Lehrplanobjektes.
 
@@ -220,7 +220,7 @@ Titel des Lehrplanobjektes.
 <dt>Typ</dt>
 <dd>`rdf:langString`</dd>
 <dt>URL</dt>
-<dd>http://schema.org/name</dd>
+<dd>http://www.w3.org/2004/02/skos/core#prefLabel</dd>
 <dt>Inferenz auf Curriculum Item</dt>
 <dd>Nein</dd>
 </dl>
@@ -285,9 +285,9 @@ MUSS auf eine URI aus der [[Schulfächerliste]] der DINI-AG-KIM verweisen.
 
 </section>
 
-<section data-dfn-for="sdo:description" id="description">
+<section data-dfn-for="skos:definition" id="definition">
 
-### <dfn>sdo:description</dfn>
+### <dfn>skos:definition</dfn>
 
 Beschreibung des Curriculums.
 
@@ -297,7 +297,7 @@ Beschreibung des Curriculums.
 <dt>Typ</dd>
 <dd>`rdf:langString`</dd>
 <dt>URL</dt>
-<dd>http://schema.org/description</dd>
+<dd>http://www.w3.org/2004/02/skos/core#definition</dd>
 <dt>Inferenz auf Curriculum Item</dt>
 <dd>Nein</dd>
 </dl>
@@ -477,9 +477,9 @@ Verweis auf einen Bildungsstandard (TODO Bildungsstandards vom IQB einfügen).
 </dl>
 </section>
 
-<section data-dfn-for="sdo:hasPart" id="hasPart">
+<section data-dfn-for="skos:narrower" id="narrower">
 
-### <dfn>sdo:hasPart</dfn>
+### <dfn>skos:narrower</dfn>
 
 Verweis auf untergeordnete Curriculum Entitäten.
 
@@ -489,15 +489,15 @@ Verweis auf untergeordnete Curriculum Entitäten.
 <dt>Typ</dd>
 <dd>`URI`</dd>
 <dt>URL</dt>
-<dd>http://schema.org/hasPart</dd>
+<dd>http://www.w3.org/2004/02/skos/core#narrower</dd>
 <dt>Inferenz auf Curriculum Item</dt>
 <dd>Nein</dd>
 </dl>
 </section>
 
-<section data-dfn-for="sdo:isPartOf" id="isPartOf">
+<section data-dfn-for="skos:broader" id="broader">
 
-### <dfn>sdo:isPartOf</dfn>
+### <dfn>skos:broader</dfn>
 
 Verweis auf übergeordnete Curriculum Entitäten (`dini:CurriculumItem`) oder das Curriculum selbst (`dini:Curriculum`).
 
@@ -507,7 +507,7 @@ Verweis auf übergeordnete Curriculum Entitäten (`dini:CurriculumItem`) oder da
 <dt>Typ</dd>
 <dd>`URI`</dd>
 <dt>URL</dt>
-<dd>http://schema.org/isPartOf</dd>
+<dd>http://www.w3.org/2004/02/skos/core#broader</dd>
 <dt>Inferenz auf Curriculum Item</dt>
 <dd>Nein</dd>
 </dl>
@@ -575,18 +575,18 @@ Verweis auf eine Curriculum Entität (`dini:CurriculumItem`) eines anderen Curri
 
 Entitäten vom Typ `dini:Curriculum` können folgende Attribute zugeordnet werden:
 
-- <a>sdo:name</a>
+- <a>skos:prefLabel</a>
 - <a>sdo:creator</a>
 - <a>sdo:publisher</a>
 - <a>sdo:about</a>
-- <a>sdo:description</a>
+- <a>skos:definition</a>
 - <a>sdo:license</a>
 - <a>sdo:dateCreated</a>
 - <a>sdo:version</a>
 - <a>sdo:keywords</a>
 - <a>sdo:timeRequired</a>
 - <a>sdo:educationalLevel</a>
-- <a>sdo:hasPart</a>
+- <a>skos:narrower</a>
 - <a>skos:relatedMatch</a>
 - <a>skos:closeMatch</a>
 - <a>skos:exactMatch</a>
@@ -602,16 +602,16 @@ Entitäten vom Typ `dini:Curriculum` können folgende Attribute zugeordnet werde
 
 Entitäten vom Typ `dini:CurriculumItem` können folgende Attribute zugeordnet werden:
 
-- <a>sdo:name</a>
-- <a>sdo:description</a>
+- <a>skos:prefLabel</a>
+- <a>skos:definition</a>
 - <a>sdo:keywords</a>
 - <a>sdo:timeRequired</a>
 - <a>sdo:educationalLevel</a>
 - <a>dini:taughtBy</a>
 - <a>dini:assessedBy</a>
 - <a>dini:educationalStandard</a>
-- <a>sdo:hasPart</a>
-- <a>sdo:isPartOf</a>
+- <a>skos:narrower</a>
+- <a>skos:broader</a>
 - <a>skos:relatedMatch</a>
 - <a>skos:closeMatch</a>
 - <a>skos:exactMatch</a>

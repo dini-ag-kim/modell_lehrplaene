@@ -1,97 +1,95 @@
 {
+    "@graph": [
+        {
+            "@id": "https://example.com/isb/mathe/matheM711",
+            "skos:closeMatch": {
+                "@id": "https://example.com/isb/mathe/matheBaWue7"
+            },
+            "skos:broader": {
+                "@id": "https://example.com/isb/mathe/matheM71"
+            },
+            "dini:educationalStandard": {
+                "@id": "https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1"
+            },
+            "sdo:timeRequired": {
+                "@value": "PT13H",
+                "@type": "xsd:duration"
+            },
+            "sdo:keywords": [
+                {
+                    "@language": "de",
+                    "@value": "Variablen"
+                },
+                {
+                    "@language": "de",
+                    "@value": "Terme"
+                }
+            ],
+            "skos:definition": {
+                "@language": "de",
+                "@value": "Die Schülerinnen und Schüler verstehen Variablen als wichtiges Hilfsmittel, um mathematische Zusammenhänge kurz und prägnant zu formulieren. Sie strukturieren und abstrahieren unterschiedlich (z. B. sprachlich, numerisch, bildhaft) dargestellte inner- und außermathematische Zusammenhänge mithilfe von Termen mit einer oder mehreren Variablen und interpretieren vorgegebene Terme in derartigen Zusammenhängen."
+            },
+            "skos:prefLabel": {
+                "@language": "de",
+                "@value": "Aufstellen und Interpretieren von Termen"
+            },
+            "@type": "dini:CurriculumItem"
+        },
+        {
+            "@id": "https://example.com/isb/mathe/matheM71",
+            "skos:closeMatch": {
+                "@id": "https://example.com/isb/mathe/matheBaWue71"
+            },
+            "dini:assessedBy": {
+                "@id": "https://www.iqb.hu-berlin.de/vera/aufgaben"
+            },
+            "@type": "dini:CurriculumItem",
+            "skos:narrower": [
+                {
+                    "@id": "https://example.com/isb/mathe/matheM711"
+                },
+                {
+                    "@id": "https://example.com/isb/mathe/matheM712"
+                }
+            ],
+            "sdo:keywords": [
+                {
+                    "@language": "de",
+                    "@value": "Variablen"
+                },
+                {
+                    "@language": "de",
+                    "@value": "Terme"
+                }
+            ],
+            "dini:taughtBy": {
+                "@id": "https://de.serlo.org/mathe/1841/termumformung-mit-variablen?contentOnly"
+            },
+            "sdo:timeRequired": {
+                "@value": "PT37H",
+                "@type": "xsd:duration"
+            },
+            "dini:educationalStandard": {
+                "@id": "https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1"
+            },
+            "skos:definition": {
+                "@language": "de",
+                "@value": ""
+            },
+            "skos:prefLabel": {
+                "@language": "de",
+                "@value": "Terme mit Variablen"
+            },
+            "skos:broader": {
+                "@id": "https://example.com/isb/mathe/matheBY7"
+            }
+        }
+    ],
     "@context": {
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "sdo": "https://schema.org/",
         "dini": "https://w3id.org/dini/dini-ns/",
-        "@vocab": "https://example.com/isb/mathe/",
-        "id": "@id",
-        "type": "@type"
-    },
-    "@graph": [
-        {
-            "id": "https://example.com/isb/mathe/matheM711",
-            "skos:closeMatch": {
-                "id": "https://example.com/isb/mathe/matheBaWue7"
-            },
-            "sdo:isPartOf": {
-                "id": "https://example.com/isb/mathe/matheM71"
-            },
-            "dini:educationalStandard": {
-                "id": "https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1"
-            },
-            "sdo:timeRequired": {
-                "@value": "PT13H",
-                "type": "xsd:duration"
-            },
-            "sdo:keywords": [
-                {
-                    "@language": "de",
-                    "@value": "Variablen"
-                },
-                {
-                    "@language": "de",
-                    "@value": "Terme"
-                }
-            ],
-            "sdo:description": {
-                "@language": "de",
-                "@value": "Die Schülerinnen und Schüler verstehen Variablen als wichtiges Hilfsmittel, um mathematische Zusammenhänge kurz und prägnant zu formulieren. Sie strukturieren und abstrahieren unterschiedlich (z. B. sprachlich, numerisch, bildhaft) dargestellte inner- und außermathematische Zusammenhänge mithilfe von Termen mit einer oder mehreren Variablen und interpretieren vorgegebene Terme in derartigen Zusammenhängen."
-            },
-            "sdo:name": {
-                "@language": "de",
-                "@value": "Aufstellen und Interpretieren von Termen"
-            },
-            "type": "dini:CurriculumItem"
-        },
-        {
-            "id": "https://example.com/isb/mathe/matheM71",
-            "skos:closeMatch": {
-                "id": "https://example.com/isb/mathe/matheBaWue71"
-            },
-            "type": "dini:CurriculumItem",
-            "dini:assessedBy": {
-                "id": "https://www.iqb.hu-berlin.de/vera/aufgaben"
-            },
-            "sdo:name": {
-                "@language": "de",
-                "@value": "Terme mit Variablen"
-            },
-            "dini:educationalStandard": {
-                "id": "https://github.com/iqb-vocabs/Bildungsstandard-Mathe-Sek1"
-            },
-            "sdo:keywords": [
-                {
-                    "@language": "de",
-                    "@value": "Variablen"
-                },
-                {
-                    "@language": "de",
-                    "@value": "Terme"
-                }
-            ],
-            "sdo:isPartOf": {
-                "id": "https://example.com/isb/mathe/matheBY7"
-            },
-            "dini:taughtBy": {
-                "id": "https://de.serlo.org/mathe/1841/termumformung-mit-variablen?contentOnly"
-            },
-            "sdo:timeRequired": {
-                "@value": "PT37H",
-                "type": "xsd:duration"
-            },
-            "sdo:hasPart": [
-                {
-                    "id": "https://example.com/isb/mathe/matheM711"
-                },
-                {
-                    "id": "https://example.com/isb/mathe/matheM712"
-                }
-            ],
-            "sdo:description": {
-                "@language": "de",
-                "@value": ""
-            }
-        }
-    ]
+        "@vocab": "https://example.com/isb/mathe/"
+    }
 }
